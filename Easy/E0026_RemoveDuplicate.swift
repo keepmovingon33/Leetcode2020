@@ -41,6 +41,8 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 
 import UIKit
 
+// 2 SOLUTIONS
+
 func removeDuplicates(_ nums: inout [Int]) -> Int {
     if nums.count <= 1 {
         return nums.count
@@ -62,3 +64,31 @@ func removeDuplicates(_ nums: inout [Int]) -> Int {
 var a = [0,0,0,1,1,1,2,2,3,3,4]
 var b = removeDuplicates(&a)
 print(b)
+
+
+func removeDuplicates(_ nums: inout [Int]) -> Int {
+    
+    var currentValue = nums[0]
+    var dictNum = [Int: Int]()
+    var result = 1
+    
+    if nums.count <= 1 { return nums.count }
+    
+    for index in 1..<nums.count {
+        if nums[index] != currentValue {
+            dictNum[result] = nums[index]
+            currentValue = nums[index]
+            result += 1
+        }
+    }
+    for index in 1..<nums.count {
+        nums[index] = dictNum[index] ?? 0
+    }
+    print(dictNum)
+    print(nums)
+    return result
+}
+
+var nums = [1,1,2]
+let result = removeDuplicates(&nums)
+print(result)

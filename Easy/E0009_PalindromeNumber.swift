@@ -54,3 +54,18 @@ print(z)
 print(a)
 
 
+func isPalindrome(_ x: Int) -> Bool {
+     
+     if x < 0 { return false }
+     var str = String(x)
+     
+     while str.count >= 2 {
+         if str.first! != str.last! {
+             return false
+         }
+         str.removeFirst()
+         str.removeLast()
+     }
+     
+     return true
+ }

@@ -22,6 +22,8 @@ import Foundation
  Output: [0,1]
 */
 
+// TWO SOLUTION
+
 class Solution {
     
     func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
@@ -37,6 +39,7 @@ class Solution {
     }
     
 }
+
 
 var solution = Solution()
 
