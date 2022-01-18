@@ -1,4 +1,4 @@
-import UIKit
+funcfwefwefwfimport UIKit
 
 /*
  Example 1:
@@ -33,14 +33,39 @@ class Solution {
                 }
                 haystackIndex -= 1
                 needleIndex -= 1
-                if haystackIndex >= 0 {
-                    continue
-                }
+            } else {
+                haystackIndexBeforeMatch += 1
+                haystackIndex = haystackIndexBeforeMatch
+                needleIndex = needle.count - 1
             }
-            haystackIndexBeforeMatch += 1
-            haystackIndex = haystackIndexBeforeMatch
-            needleIndex = needle.count - 1
         }
         return -1
     }
+}
+
+
+func strStr(_ haystack: String, _ needle: String) -> Int {
+   
+    if needle.count == 0 {
+        return 0
+    }
+    
+    if !haystack.contains(needle) {
+        return -1
+    }
+    
+    var arr1 = Array(haystack)
+    let count1 = arr1.count
+    var arr2 = Array(needle)
+    let count2 = arr2.count
+    
+    for index in 0...(count1 - count2) {
+        print("arr1[index...(index + count2)] = \(arr1[index..<(index + count2)])")
+        print("arr2[0..<count2] = \(arr2[0..<count2])")
+        if arr1[index..<(index + count2)] == arr2[0..<count2] {
+            return index
+        }
+    }
+    
+    return 0
 }

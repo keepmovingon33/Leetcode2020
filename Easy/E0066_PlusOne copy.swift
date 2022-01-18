@@ -82,3 +82,23 @@ print(b3)
 print(b4)
 
 
+func plusOne(_ digits: [Int]) -> [Int] {
+    var result = [Int]()
+    var concatNum: String = ""
+    var tempNum = 0
+    
+    for num in digits {
+        concatNum += String(num)
+    }
+    
+    tempNum = Int(concatNum)! + 1
+    
+    while tempNum > 0 {
+        result.insert(tempNum % 10, at: 0)
+        tempNum = tempNum / 10
+    }
+    print(result)
+    return result
+}
+
+plusOne([1,2,3])
