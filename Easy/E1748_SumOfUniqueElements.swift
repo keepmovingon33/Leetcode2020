@@ -45,17 +45,39 @@ import UIKit
 
  */
 
-
-func smallestEqual(_ nums: [Int]) -> Int {
-    for index in 0..<nums.count {
-        if (index % 10) == nums[index] {
-            return index
-        }
+func sumOfUnique(_ nums: [Int]) -> Int {
+    var result = 0
+    var dictNum = [Int: Int]()
+    
+    for num in nums {
+        dictNum[num, default: 0] += 1
     }
-   
-    return -1
+    
+    for (key, value) in dictNum where value == 1 {
+        result += key
+    }
+    
+    return result
 }
 
-var nums = [4,3,2,1]
-print(smallestEqual(nums))
 
+func sumOfUnique(_ nums: [Int]) -> Int {
+    var result = 0
+    var dictNum = [Int: Int]()
+    
+    for num in nums {
+        if dictNum[num] == nil {
+            dictNum[num] = 1
+        } else {
+            dictNum[num]! += 1
+        }
+    }
+    
+    for (key, value) in dictNum {
+        if value == 1 {
+            result += key
+        }
+    }
+    
+    return result
+}

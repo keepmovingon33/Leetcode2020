@@ -37,6 +37,21 @@ import UIKit
 
  */
 
+
+func twoOutOfThree(_ nums1: [Int], _ nums2: [Int], _ nums3: [Int]) -> [Int] {
+    let set1 = Set(nums1)
+    let set2 = Set(nums2)
+    let set3 = Set(nums3)
+
+    let int1 = set1.intersection(set2)
+    let int2 = set1.intersection(set3)
+    let int3 = set3.intersection(set2)
+    
+    let result = int1.union(int2.union(int3))
+    
+    return Array(result)
+}
+
 func twoOutOfThree(_ nums1: [Int], _ nums2: [Int], _ nums3: [Int]) -> [Int] {
     var result: [Int] = []
     

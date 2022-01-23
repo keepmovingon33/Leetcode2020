@@ -27,6 +27,48 @@ import UIKit
 
 
 func sortArrayByParity(_ nums: [Int]) -> [Int] {
+    var result = nums
+    
+    var pos = 0
+    
+    var temp = 0
+    
+    for index in 0..<nums.count {
+        if result[index] % 2 == 0 {
+            temp = result[pos]
+            result[pos] = result[index]
+            result[index] = temp
+            pos += 1
+        }
+    }
+    
+    return result
+}
+
+
+func sortArrayByParity(_ nums: [Int]) -> [Int] {
+    var result = Array(repeating: 0, count: nums.count)
+    var evenIndex = 0
+    var oddIndex = nums.count - 1
+    
+    for num in nums {
+        if num % 2 == 0 {
+            result[evenIndex] = num
+            evenIndex += 1
+        } else {
+            result[oddIndex] = num
+            oddIndex -= 1
+        }
+    }
+    return result
+}
+
+func sortArrayByParity(_ nums: [Int]) -> [Int] {
+    return nums.filter { $0 % 2 == 0} + nums.filter { $0 % 2 == 1 }
+}
+
+
+func sortArrayByParity(_ nums: [Int]) -> [Int] {
     var result: [Int] = []
     
     for num in nums {

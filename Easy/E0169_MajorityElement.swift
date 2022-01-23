@@ -28,6 +28,60 @@ import UIKit
  Follow-up: Could you solve the problem in linear time and in O(1) space?
  
  */
+
+func majorityElement(_ nums: [Int]) -> Int {
+    var dict = [Int: Int]()
+    
+    for num in nums {
+        dict[num, default: 0] += 1
+        if dict[num]! > (nums.count / 2) {
+            return num
+        }
+    }
+    
+    return 0
+}
+
+
+func majorityElement(_ nums: [Int]) -> Int {
+    var maxCount = 0
+    var maxNum = nums[0]
+    
+    for num in nums {
+        if maxCount == 0 {
+            maxNum = num
+            maxCount = 1
+            continue
+        }
+        
+        if maxNum == num {
+            maxCount += 1
+        } else {
+            maxCount -= 1
+        }
+    }
+    
+    return maxNum
+}
+
+
+func majorityElement(_ nums: [Int]) -> Int {
+    var dict = [Int: Int]()
+    
+    for num in nums {
+        dict[num, default: 0] += 1
+    }
+    
+    for (key, value) in dict {
+        if value > (nums.count / 2) {
+            return key
+        }
+    }
+    
+    return 0
+}
+
+
 func majorityElement(_ nums: [Int]) -> Int {
     
     var dictNum = [Int: Int]()

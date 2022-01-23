@@ -25,6 +25,14 @@ import UIKit
  */
 
 func singleNumber(_ nums: [Int]) -> Int {
+    return nums.reduce(0, ^)
+}
+
+func singleNumber(_ nums: [Int]) -> Int {
+    return Set(nums).reduce(0, +) * 2 - nums.reduce(0, +)
+}
+
+func singleNumber(_ nums: [Int]) -> Int {
     var dictNum = [Int: Int]()
     
     for num in nums {
